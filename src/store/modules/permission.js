@@ -45,9 +45,8 @@ const permission = {
     }
   },
   actions: {
-    /**根据角色获取路由配置 */
+    /**根据角色获取路由配置,并保存用户角色 */
     getAsyncRoutes({ commit }, roles) {
-      commit('SET_ROLES', roles) // 保存roles信息到store中
       let filterRoutes = GenerateRoutes(asyncRoutes, roles)
       let res = routes.concat(filterRoutes)
       commit('SET_ROUTES', res)

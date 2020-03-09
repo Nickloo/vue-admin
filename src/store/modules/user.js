@@ -9,20 +9,25 @@ const user = {
       state.username = data.username,
         state.roles = data.roles
     },
+    SET_ROUTES: (state, routes) => {
+      state.routes = routes
+    }
   },
   actions: {
     /**
-     * 模拟登陆
+     * 模拟登录
      */
-    login() {
+    async login() {
       localStorage.JWT_TOKEN = TOKEN
+      return TOKEN
     },
     /**
      * 模拟获取用户信息 
      */
-    getUser({ commit }) {
+    async getUser({ commit }) {
       let userInfo = USER_INFO
       commit('SET_USER', userInfo)
+      commit('SET_ROLES', userInfo.roles) // 保存roles信息到store中
       return userInfo
     }
   },

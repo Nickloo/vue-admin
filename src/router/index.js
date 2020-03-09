@@ -13,6 +13,12 @@ export const routes = [
     component: () => import('../views/Home.vue'),
   },
   {
+    path: '/login',
+    name: 'login',
+    component: () => import('../views/Login.vue'),
+    hidden: true, // 为true时在页面导航中隐藏
+  },
+  {
     path: '/404',
     name: '404',
     component: () => import('../views/404.vue'),
